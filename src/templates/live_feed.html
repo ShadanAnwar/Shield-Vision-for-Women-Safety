@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Live Feeds - Safe Women{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-9">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4><i class="fas fa-camera"></i> Live Camera Feeds</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% if camera_feeds %}
+                        {% for name, url in camera_feeds.items() %}
+                        <div class="col-md-6 mb-4">
+                            <div class="video-container" id="container-{{ name }}">
+                                <img src="{{ url_for('video_feed', feed_name=name) }}" alt="{{ name }}" class="video-feed">
+                                <div class="feed-title">{{ name }}</div>
+                                <div class="alert-indicator" id="alert-{{ name }}">ASSAULT DETECTED</div>
+                                <div class="feed-controls">
+                                    <form action="{{ url_for('delete_camera', feed_name=name) }}" method="POST" class="d-inline">
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    <div class="col-12 text-center py-5">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> No camera feeds added yet. 
+                            <a href="{{ url_for('home') }}">Add a camera feed</a> to start monitoring.
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-danger text-white">
+                <h5><i class="fas fa-exclamation-triangle"></i> Alerts</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="list-group" id="alerts-list">
+                    <div class="list-group-item text-center py-3" id="no-alerts-message">
+                        <i class="fas fa-check-circle text-success"></i> No alerts
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('clear_alerts') }}" class="btn btn-sm btn-outline-danger w-100">
+                    <i class="fas fa-trash"></i> Clear All Alerts
+                </a>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white">
+                <h5><i class="fas fa-cog"></i> Controls</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('home') }}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Camera
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Alerts Sound -->
+<audio id="alert-sound" preload="auto">
+    <source src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.core.min.js" type="audio/mpeg">
+</audio>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Function to update alerts
+    function updateAlerts() {
+        fetch('{{ url_for("get_alerts") }}')
+            .then(response => response.json())
+            .then(data => {
+                const alertsList = document.getElementById('alerts-list');
+                const noAlertsMessage = document.getElementById('no-alerts-message');
+                
+                // Clear all alert indicators
+                document.querySelectorAll('.alert-indicator').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                if (data.alerts.length > 0) {
+                    // Hide no alerts message
+                    noAlertsMessage.style.display = 'none';
+                    
+                    // Clear existing alerts
+                    alertsList.innerHTML = '';
+                    
+                    // Add new alerts
+                    data.alerts.forEach(alert => {
+                        const alertElement = document.createElement('div');
+                        alertElement.className = 'list-group-item list-group-item-danger';
+                        alertElement.innerHTML = `
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">${alert.feed_name}</h6>
+                                <small>${alert.timestamp}</small>
+                            </div>
+                            <p class="mb-1">${alert.message}</p>
+                        `;
+                        alertsList.appendChild(alertElement);
+                        
+                        // Show alert indicator on corresponding feed
+                        const alertIndicator = document.getElementById(`alert-${alert.feed_name}`);
+                        if (alertIndicator) {
+                            alertIndicator.style.display = 'block';
+                        }
+                    });
+                    
+                    // Play alert sound (only for new alerts)
+                    playAlertSound();
+                } else {
+                    // Show no alerts message
+                    noAlertsMessage.style.display = 'block';
+                    alertsList.innerHTML = '';
+                    alertsList.appendChild(noAlertsMessage);
+                }
+            })
+            .catch(error => console.error('Error fetching alerts:', error));
+    }
+    
+    // Function to play alert sound
+    function playAlertSound() {
+        // const alertSound = document.getElementById('alert-sound');
+        // alertSound.play().catch(e => console.log('Audio play error:', e));
+        console.log('Alert sound would play here');
+    }
+    
+    // Check for alerts every 2 seconds
+    setInterval(updateAlerts, 2000);
+    
+    // Initial update
+    document.addEventListener('DOMContentLoaded', updateAlerts);
+    
+</script>
+{% endblock %}

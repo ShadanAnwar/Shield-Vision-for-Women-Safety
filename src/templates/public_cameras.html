@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Public Camera Feeds{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Public Camera Feeds</h2>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        Error: {{ error }}
+    </div>
+    {% endif %}
+
+    {% if cameras %}
+    <div class="row">
+        {% for camera in cameras %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ camera.name }}</h5>
+                    <p class="card-text text-muted">{{ camera.location or 'Unknown Location' }}</p>
+                    <iframe src="{{ camera.stream_url }}" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info" role="alert">
+        No public cameras available.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

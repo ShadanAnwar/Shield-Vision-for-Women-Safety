@@ -1,0 +1,2 @@
+[2025-05-17 23:08:53] ERROR: validation - Invalid email address: +919403308822
+[2025-05-17 23:09:34] ERROR: alert - SMTP Authentication failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-30e33451a06sm7295091a91.21 - gsmtp')

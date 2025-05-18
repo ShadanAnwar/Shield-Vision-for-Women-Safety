@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Verify Emergency Contact{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="card-title mb-0">Verify Emergency Contact</h2>
+                </div>
+                <div class="card-body">
+                    
+
+                    <div class="mb-4">
+                        <p class="text-muted">
+                            A verification code has been sent to: 
+                            <span class="font-weight-bold">{{ contact_number }}</span>
+                        </p>
+                    </div>
+
+                    <form method="POST" action="{{ url_for('verify_emergency_contact') }}">
+                        <div class="mb-3">
+                            <label for="verification_code" class="form-label">Verification Code</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="verification_code" 
+                                name="verification_code" 
+                                placeholder="Enter 6-digit code"
+                                pattern="\d{6}"
+                                maxlength="6"
+                                required
+                            >
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Verify Code</button>
+                            <a href="{{ url_for('manage_emergency_contact') }}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

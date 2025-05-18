@@ -1,0 +1,126 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home - Safe Women{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-info text-white">
+                <h4><i class="fas fa-home"></i> Dashboard</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-white bg-primary">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-camera"></i> Camera Feeds</h5>
+                                <p class="card-text display-4">{{ camera_feeds|length }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-white bg-warning">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-exclamation-triangle"></i> Active Alerts</h5>
+                                <p class="card-text display-4" id="active-alerts-count">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-white bg-success">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-check-circle"></i> System Status</h5>
+                                <p class="card-text"><span class="badge bg-success">Online</span></p>
+                                <p class="card-text">Model: {{ 'Loaded' if model is not none else 'Not Loaded' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4><i class="fas fa-plus-circle"></i> Add Camera Feed</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" class="row g-3">
+                    <div class="col-md-5">
+                        <label for="feed_name" class="form-label">Feed Name</label>
+                        <input type="text" class="form-control" id="feed_name" name="feed_name" required>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="feed_url" class="form-label">Feed URL</label>
+                        <input type="text" class="form-control" id="feed_url" name="feed_url" required
+                               placeholder="RTSP URL or 0 for webcam">
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-plus"></i> Add Feed
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% if camera_feeds %}
+        <div class="card shadow-sm mt-4">
+            <div class="card-header bg-info text-white">
+                <h4><i class="fas fa-list"></i> Current Camera Feeds</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Feed Name</th>
+                                <th>URL</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name, url in camera_feeds.items() %}
+                            <tr>
+                                <td>{{ name }}</td>
+                                <td><small>{{ url }}</small></td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>
+                                    <a href="{{ url_for('live_feed') }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Function to check for alerts
+    function checkAlerts() {
+        fetch('{{ url_for("get_alerts") }}')
+            .then(response => response.json())
+            .then(data => {
+                const alertCount = data.alerts.length;
+                document.getElementById('active-alerts-count').textContent = alertCount;
+            })
+            .catch(error => console.error('Error fetching alerts:', error));
+    }
+
+    // Check for alerts every 5 seconds
+    setInterval(checkAlerts, 5000);
+    
+    // Initial check
+    checkAlerts();
+</script>
+{% endblock %}

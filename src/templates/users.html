@@ -1,0 +1,93 @@
+
+{% extends "base.html" %}
+
+{% block title %}Manage Users - Safe Women{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h4><i class="fas fa-users"></i> User Management</h4>
+    </div>
+    <div class="card-body">
+        {% if users %}
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>
+                            <span class="badge {% if user.role == 'admin' %}bg-danger{% else %}bg-info{% endif %}">
+                                {{ user.role }}
+                            </span>
+                        </td>
+                        <td>{{ user.created_at }}</td>
+                        <td>
+                            {% if user.username != 'admin' %}
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-shield"></i> Change Role
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <form action="{{ url_for('change_role', username=user.username) }}" method="post">
+                                            <input type="hidden" name="role" value="admin">
+                                            <button type="submit" class="dropdown-item">Make Admin</button>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form action="{{ url_for('change_role', username=user.username) }}" method="post">
+                                            <input type="hidden" name="role" value="user">
+                                            <button type="submit" class="dropdown-item">Make User</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <button type="button" class="btn btn-sm btn-outline-danger" 
+                                    data-bs-toggle="modal" data-bs-target="#deleteModal{{ user.username }}">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                            
+                            <!-- Delete Confirmation Modal -->
+                            <div class="modal fade" id="deleteModal{{ user.username }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-danger text-white">
+                                            <h5 class="modal-title">Confirm Delete</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete user <strong>{{ user.username }}</strong>? 
+                                            This action cannot be undone.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <form action="{{ url_for('delete_user', username=user.username) }}" method="post">
+                                                <button type="submit" class="btn btn-danger">Delete User</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-info">No users found.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

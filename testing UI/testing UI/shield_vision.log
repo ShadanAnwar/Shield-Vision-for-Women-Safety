@@ -1,0 +1,56 @@
+[2025-05-17 22:15:05] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_a1ca2436.mp4, Confidence: 0.48
+[2025-05-17 22:18:13] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_34f5946e.mp4, Confidence: 0.57
+[2025-05-17 22:19:24] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.51
+[2025-05-17 22:20:47] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.62
+[2025-05-17 22:20:58] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_34f5946e.mp4, Confidence: 0.54
+[2025-05-17 22:21:07] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_a1ca2436.mp4, Confidence: 0.59
+[2025-05-17 22:22:20] Video-NonViolence | Severity: low | Details: File: 42505-360.mp4, Confidence: 0.58
+[2025-05-17 22:23:08] Video-Violence | Severity: high | Details: File: test video 1.mp4, Confidence: 0.52
+[2025-05-17 22:24:05] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.17.44_8ddb9f26.mp3", "keywords": []}
+[2025-05-17 22:31:38] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_2d858202.mp4, Confidence: 0.59
+[2025-05-17 22:35:11] Video-NonViolence | Severity: low | Details: File: test video 1.mp4, Confidence: 0.60
+[2025-05-17 22:35:22] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_2d858202.mp4, Confidence: 0.50
+[2025-05-17 22:45:44] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.57
+[2025-05-17 22:48:02] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.17.44_8ddb9f26.mp3", "keywords": []}
+[2025-05-17 22:48:10] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "keywords": []}
+[2025-05-17 22:48:21] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "keywords": []}
+[2025-05-17 22:48:45] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "keywords": []}
+[2025-05-17 22:50:21] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.61
+[2025-05-17 22:57:55] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.51
+[2025-05-17 23:00:20] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.53
+[2025-05-17 23:00:32] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_34f5946e.mp4, Confidence: 0.56
+[2025-05-17 23:05:50] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_a1ca2436.mp4, Confidence: 0.55
+[2025-05-17 23:06:01] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.55
+[2025-05-17 23:08:53] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_34f5946e.mp4, Confidence: 0.52
+[2025-05-17 23:09:25] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_34f5946e.mp4, Confidence: 0.62
+[2025-05-17 23:09:30] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_34f5946e.mp4, Confidence: 0.53
+[2025-05-17 23:15:30] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_2d858202.mp4, Confidence: 0.53
+[2025-05-17 23:21:25] Video-Violence | Severity: high | Details: File: test video 1.mp4, Confidence: 0.55
+[2025-05-17 23:21:40] Video-NonViolence | Severity: low | Details: File: test video 1.mp4, Confidence: 0.65
+[2025-05-17 23:21:45] Video-NonViolence | Severity: low | Details: File: test video 1.mp4, Confidence: 0.52
+[2025-05-17 23:22:52] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "keywords": []}
+[2025-05-17 23:28:33] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "keywords": []}
+[2025-05-17 23:28:50] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "keywords": []}
+[2025-05-17 23:29:10] Audio-None | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.52_0e205429.mp3", "keywords": []}
+[2025-05-17 23:35:38] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "analysis": "Analysis failed"}
+[2025-05-17 23:38:44] Audio-Violence | Severity: high | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "forced_detection": true}
+[2025-05-17 23:39:05] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_34f5946e.mp4, Confidence: 0.51
+[2025-05-17 23:39:21] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_a1ca2436.mp4, Confidence: 0.51
+[2025-05-17 23:43:23] Video-Violence | Severity: high | Details: File: test video 1.mp4, Confidence: 0.59
+[2025-05-17 23:57:08] Video-Violence | Severity: high | Details: File: test video 1.mp4, Confidence: 0.53
+[2025-05-18 03:02:40] Video-NonViolence | Severity: low | Details: File: WhatsApp Video 2025-05-17 at 22.04.10_7f6be78f.mp4, Confidence: 0.52
+[2025-05-18 03:02:58] Video-NonViolence | Severity: low | Details: File: test video 1.mp4, Confidence: 0.69
+[2025-05-18 03:03:17] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_a1ca2436.mp4, Confidence: 0.60
+[2025-05-18 05:37:33] Video-Violence | Severity: high | Details: File: WhatsApp Video 2025-05-17 at 22.04.11_a1ca2436.mp4, Confidence: 0.50
+[2025-05-18 05:38:31] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "analysis": "Analysis failed"}
+[2025-05-18 05:38:48] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "analysis": "Analysis failed"}
+[2025-05-18 05:39:01] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "analysis": "Analysis failed"}
+[2025-05-18 05:39:26] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.17.44_8ddb9f26.mp3", "analysis": "Analysis failed"}
+[2025-05-18 05:39:48] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.52_0e205429.mp3", "analysis": "Analysis failed"}
+[2025-05-18 05:40:02] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "analysis": "Analysis failed"}
+[2025-05-18 05:44:54] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.52_0e205429.mp3", "analysis": "No threat detected based on audio characteristics."}
+[2025-05-18 05:45:24] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "analysis": "No threat detected based on audio characteristics."}
+[2025-05-18 05:47:28] Audio-Normal | Severity: low | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.53_e0b59c3b.mp3", "analysis": "No threat detected based on audio characteristics."}
+[2025-05-18 05:51:18] Audio-Distress | Severity: medium | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.52_0e205429.mp3", "confidence": 90, "reason": "High volume shouting with high pitch detected, indicating potential distress."}
+[2025-05-18 05:51:26] Audio-Distress | Severity: medium | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.42.52_0e205429.mp3", "confidence": 90, "reason": "High volume shouting with high pitch detected, indicating potential distress."}
+[2025-05-18 05:51:40] Audio-Distress | Severity: medium | Details: {"file": "WhatsApp Audio 2025-05-17 at 22.17.44_8ddb9f26.mp3", "confidence": 90, "reason": "High volume shouting with high pitch detected, indicating potential distress."}

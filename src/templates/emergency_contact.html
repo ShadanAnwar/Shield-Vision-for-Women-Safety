@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Emergency Contact Management{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header text-white text-center">
+                    <h2 class="card-title mb-0">Emergency Contact</h2>
+                </div>
+                <div class="card-body">
+                    
+
+                    <form method="POST" action="{{ url_for('manage_emergency_contact') }}">
+                        <div class="mb-3">
+                            <label for="phone_number" class="form-label">Emergency Contact Number</label>
+                            <input 
+                                type="tel" 
+                                class="form-control" 
+                                id="phone_number" 
+                                name="phone_number" 
+                                placeholder="+91 1234567890"
+                               
+                                pattern="^\+?1?\d{10,14}$"
+                                required
+                            >
+                            <div class="form-text">Include country code (e.g., +91 for IN numbers)</div>
+                        </div>
+
+                        {% if current_contact.number %}
+                            <div class="mb-3">
+                                <p class="text-muted">
+                                    Current Contact: <strong>{{ current_contact.number }}</strong>
+                                    {% if current_contact.verified %}
+                                        <span class="badge bg-success">✓ Verified</span>
+                                    {% else %}
+                                        <span class="badge bg-warning">⚠️ Not Verified</span>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Update Contact</button>
+                            {% if current_contact.number and not current_contact.verified %}
+                                <a href="{{ url_for('verify_emergency_contact') }}" class="btn btn-outline-secondary">Verify Number</a>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
