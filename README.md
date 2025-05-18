@@ -121,7 +121,7 @@ streamlit run app.py
 
 ### CCTV Monitoring System
 1. The system connects to CCTV camera feeds
-2. YOLO model processes each frame to detect assault
+2. MobilNet V2 model processes each frame to detect assault
 3. When assault is detected:
    - Visual alert appears on the interface
    - SMS alert is sent to emergency contact
