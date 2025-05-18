@@ -137,6 +137,34 @@ streamlit run app.py
    - Alerts are sent via email and SMS
    - Incident is logged in the system
 
+## Dataset
+
+The video analysis model was trained using the ["Real Life Violence Situations" dataset](https://www.kaggle.com/datasets/mohamedmustafa/real-life-violence-situations-dataset) from Kaggle.
+
+### Dataset Description
+
+- **Content**: 2000 videos (1000 violence + 1000 non-violence)
+- **Source**: YouTube videos 
+- **Violence footage**: Real street fights in various environments and conditions
+- **Non-violence footage**: Various human actions like sports, eating, walking, etc.
+
+### Citation
+
+If you use this dataset for research or engineering purposes, please cite:
+```
+M. Soliman, M. Kamal, M. Nashed, Y. Mostafa, B. Chawky, D. Khattab, 
+"Violence Recognition from Videos using Deep Learning Techniques", 
+Proc. 9th International Conference on Intelligent Computing and Information Systems (ICICIS'19), 
+Cairo, pp. 79-84, 2019.
+```
+
+### Acknowledgements
+
+Thanks to the dataset creators: 
+- Dr. Dina Khattab (Supervisor)
+- TA. Bassel Safwat (Supervisor)
+- Team members: Mohamed Hussein, Mina Abd El-Massih, Youssif Mohamed
+
 ## Requirements
 
 ### Flask Application
